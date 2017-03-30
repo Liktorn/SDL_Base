@@ -1,0 +1,23 @@
+
+
+from the while(true)
+
+		//returns the ticks since the loop started to elapsed
+		int elapsed = SDL_GetTicks();
+		// sin() makes a value that goes from -1 to 1
+		// this makes it go from 0 to 255 (unsigned char is max 255)
+		unsigned char red = (unsigned char)((1 + sin(elapsed * 0.001)) * 128);
+		unsigned char green = (unsigned char)((1 + sin(elapsed * 0.002)) * 128);
+		unsigned char blue = (unsigned char)((1 + sin(elapsed * 0.003)) * 128);
+
+		for (int y = 0; y < Screen::SCREEN_HEIGHT; y++)
+			for (int x = 0; x < Screen::SCREEN_WIDTH; x++)
+				screen.setPixel(x, y, red, green, blue);
+
+		// Draw the whole screen in radiant
+		for (int y = 0; y < Screen::SCREEN_HEIGHT; y++)
+			for (int x = 0; x < Screen::SCREEN_WIDTH; x++)
+				screen.setPixel(x, y, x*0.32, 0, y*0.42);
+
+		// draw an individual pixel
+		screen.setPixel(400, 300, 255, 255, 255);
